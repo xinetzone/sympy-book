@@ -1,0 +1,1664 @@
+
+<!DOCTYPE html>
+
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.1.3. 化简 &#8212; 品味人生</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/sympy-book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1.1.4. 计算" href="03_calculus.html" />
+    <link rel="prev" title="1.1.2. 基本运算" href="01_basic-operations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">品味人生</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  教程
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../preface.html">
+   1. 前言
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
+     1.1. SymPy
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="00_intro.html">
+       1.1.1. 简介
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_basic-operations.html">
+       1.1.2. 基本运算
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       1.1.3. 化简
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_calculus.html">
+       1.1.4. 计算
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04_solvers.html">
+       1.1.5. 求解
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matrices.html">
+       1.1.6. 矩阵
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="06_manipulation.html">
+       1.1.7. 高级表达式操作
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="07_faqs.html">
+       1.1.8. 常见问题
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  外部资源
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/index.html">
+   参考
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/glossary.html">
+   术语库
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div class="w3-padding w3-card-4 w3-pale-green">
+  <a href="https://github.com/xinetzone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+      data-position="top" data-delay="50">
+      <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:q735613050@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top"
+      data-delay="50">
+      <i class="fas fa-envelope-open"></i>
+  </a>
+  <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=735613050" class="tooltipped"
+      target="_blank" data-tooltip="QQ联系我: 735613050" data-position="top" data-delay="50">
+      <i class="fab fa-qq"></i>
+  </a>
+  <a href="https://www.zhihu.com/people/liu-xin-wei-55" class="tooltipped" target="_blank"
+      data-tooltip="关注我的知乎: liu-xin-wei-55" data-position="top" data-delay="50">
+      <i class="fab fa-zhihu1">知</i>
+  </a>
+  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/xinet" class="tooltipped"
+      data-tooltip="领英联系我: xinet" data-position="top" data-delay="50">
+      <i class="fab fa-linkedin"></i>
+  </a>
+  <div><a href="https://github.com/xinetzone/sympy-book">SymPy Book</a> 版权所有</div>
+</div> 
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/start/02_simplification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/start/02_simplification.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/sympy-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/sympy-book/issues/new?title=Issue%20on%20page%20%2Fstart/02_simplification.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/sympy-book/main?urlpath=tree/docs/start/02_simplification.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simplify">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     simplify
+    </span>
+   </code>
+   是通用的简化方式
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   多项式/有理函数化简
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expand">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       expand
+      </span>
+     </code>
+     展开多项式
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#factor">
+     factor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collect">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       collect
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cancel">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       cancel
+      </span>
+     </code>
+     约分
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apart">
+     apart()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   三角函数简化
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trigsimp">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       trigsimp
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expand-trig">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       expand_trig
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   幂运算
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#powsimp">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       powsimp
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expand-power-exp-expand-power-base">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       expand_power_exp
+      </span>
+     </code>
+     /
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       expand_power_base
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#powdenest">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       powdenest
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   指数和对数
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expand-log">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       expand_log
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logcombine">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       logcombine
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   特殊函数
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rewrite">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       rewrite
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expand-func">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       expand_func
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hyperexpand">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       hyperexpand
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combsimp">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       combsimp
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gammasimp">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       gammasimp
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   示例：连续分数
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1><span class="section-number">1.1.3. </span>化简<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>参考：<a class="reference external" href="https://docs.sympy.org/latest/tutorial/simplification.html">Simplification</a></p>
+<div class="section" id="simplify">
+<h2><code class="docutils literal notranslate"><span class="pre">simplify</span></code> 是通用的简化方式<a class="headerlink" href="#simplify" title="永久链接至标题">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x:z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">simplify</span></code> 可以简化表达式：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simplify</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simplify</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x - 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simplify</span><span class="p">(</span><span class="n">gamma</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">gamma</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(x - 2\right) \left(x - 1\right)\]</div>
+</div>
+</div>
+<p>这里 <code class="docutils literal notranslate"><span class="pre">gamma(x)</span></code> 指的是：<span class="math notranslate nohighlight">\(\Gamma(x)\)</span>。</p>
+<p>注意：<code class="docutils literal notranslate"><span class="pre">simplify</span></code> 仅仅是简化，不能做到因式分解：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simplify</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{2} + 2 x + 1\]</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">factor()</span></code> 保证将多项式分解为不可约因子。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(x + 1\right)^{2}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>多项式/有理函数化简<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="expand">
+<h3><code class="docutils literal notranslate"><span class="pre">expand</span></code> 展开多项式<a class="headerlink" href="#expand" title="永久链接至标题">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{2} + 2 x + 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{2} - x - 6\]</div>
+</div>
+</div>
+<p>给定一个多项式，<code class="docutils literal notranslate"><span class="pre">expand()</span></code> 将把它变成单项式和的规范形式。</p>
+<p><code class="docutils literal notranslate"><span class="pre">expand()</span></code> 听起来可能不像一个简化函数。毕竟，就其名称而言，它使表达式更大，而不是更小。通常是这种情况，但由于 cancellation，表达式在调用 <code class="docutils literal notranslate"><span class="pre">expand()</span></code> 时通常会变小。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle -2\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="factor">
+<h3>factor<a class="headerlink" href="#factor" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">factor()</span></code> 将多项式分解为有理数上的不可约因子。例如：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(x - 1\right) \left(x^{2} + 1\right)\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle z \left(x + 2 y\right)^{2}\]</div>
+</div>
+</div>
+<p>对于多项式，<code class="docutils literal notranslate"><span class="pre">factor()</span></code> 与 <code class="docutils literal notranslate"><span class="pre">expand()</span></code> 相反。<code class="docutils literal notranslate"><span class="pre">factor()</span></code> 对有理数使用完整的多元因子分解算法，这意味着 <code class="docutils literal notranslate"><span class="pre">factor()</span></code> 返回的每个因子都保证是不可约的。如果您对因子本身感兴趣，<code class="docutils literal notranslate"><span class="pre">factor_list</span></code> 会返回一个更结构化的输出。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor_list</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, [(z, 1), (x + 2*y, 2)])
+</pre></div>
+</div>
+</div>
+</div>
+<p>请注意，<code class="docutils literal notranslate"><span class="pre">factor</span></code> 和 <code class="docutils literal notranslate"><span class="pre">expand</span></code> 的输入不必是严格意义上的多项式。他们将智能地分解或扩展任何类型的表达式（但请注意，如果输入不再是有理数上的多项式，则这些因子可能不是不可约的）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand</span><span class="p">((</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \sin^{2}{\left(x \right)} + 2 \sin{\left(x \right)} \cos{\left(x \right)} + \cos^{2}{\left(x \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(\sin{\left(x \right)} + \cos{\left(x \right)}\right)^{2}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="collect">
+<h3><code class="docutils literal notranslate"><span class="pre">collect</span></code><a class="headerlink" href="#collect" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">collect()</span></code> 收集表达式中项的公共幂。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">z</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{3} - x^{2} z + 2 x^{2} + x y + x - 3\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collected_expr</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">collected_expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{3} + x^{2} \left(2 - z\right) + x \left(y + 1\right) - 3\]</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">collect()</span></code> 与 <code class="docutils literal notranslate"><span class="pre">.coeff()</span></code> 方法结合使用特别有用。<code class="docutils literal notranslate"><span class="pre">expr.coeff(x,</span> <span class="pre">n)</span></code> 给出 <code class="docutils literal notranslate"><span class="pre">expr</span></code> 中 <span class="math notranslate nohighlight">\(x^n\)</span> 的系数：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collected_expr</span><span class="o">.</span><span class="n">coeff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 - z\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="cancel">
+<h3><code class="docutils literal notranslate"><span class="pre">cancel</span></code> 约分<a class="headerlink" href="#cancel" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">cancel()</span></code> 将采用任何有理函数并将其放入标准规范形式 <span class="math notranslate nohighlight">\({\frac p q}\)</span> 中，其中 <span class="math notranslate nohighlight">\(p\)</span> 和 <span class="math notranslate nohighlight">\(q\)</span> 是没有公因子的扩展多项式，并且 <span class="math notranslate nohighlight">\(p\)</span> 和 <span class="math notranslate nohighlight">\(q\)</span> 的前导系数没有分母（即整数）。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cancel</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{x + 1}{x}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\frac{3 x}{2} - 2}{x - 4} + \frac{1}{x}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cancel</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{3 x^{2} - 2 x - 8}{2 x^{2} - 8 x}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{x y^{2} - 2 x y z + x z^{2} + y^{2} - 2 y z + z^{2}}{x^{2} - 1}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cancel</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{y^{2} - 2 y z + z^{2}}{x - 1}\]</div>
+</div>
+</div>
+<p>请注意，由于 <code class="docutils literal notranslate"><span class="pre">factor()</span></code> 将完全分解表达式的分子和分母，因此它也可以用于做同样的事情：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\left(y - z\right)^{2}}{x - 1}\]</div>
+</div>
+</div>
+<p>但是，如果您只想确保表达式处于 cancel 形式，<code class="docutils literal notranslate"><span class="pre">cancel()</span></code> 比 <code class="docutils literal notranslate"><span class="pre">factor()</span></code> 更有效。</p>
+</div>
+<div class="section" id="apart">
+<h3>apart()<a class="headerlink" href="#apart" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">apart()</span></code> 对有理函数执行<a class="reference external" href="https://en.wikipedia.org/wiki/Partial_fraction_decomposition">部分分式分解</a>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">21</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">12</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{4 x^{3} + 21 x^{2} + 10 x + 12}{x^{4} + 5 x^{3} + 5 x^{2} + 4 x}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apart</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{2 x - 1}{x^{2} + x + 1} - \frac{1}{x + 4} + \frac{3}{x}\]</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>三角函数简化<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="trigsimp">
+<h3><code class="docutils literal notranslate"><span class="pre">trigsimp</span></code><a class="headerlink" href="#trigsimp" title="永久链接至标题">¶</a></h3>
+<p>要使用三角恒等式简化表达式，请使用 <code class="docutils literal notranslate"><span class="pre">trigsimp()</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trigsimp</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trigsimp</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\cos{\left(4 x \right)}}{2} + \frac{1}{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trigsimp</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">sec</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \sin^{2}{\left(x \right)}\]</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">trigsimp()</span></code> 也适用于双曲三角函数。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trigsimp</span><span class="p">(</span><span class="n">cosh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \cosh{\left(2 x \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trigsimp</span><span class="p">(</span><span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \cosh{\left(x \right)}\]</div>
+</div>
+</div>
+<p>与 <code class="docutils literal notranslate"><span class="pre">simplify()</span></code> 非常相似，<code class="docutils literal notranslate"><span class="pre">trigsimp()</span></code> 将各种三角恒等式应用于输入表达式，然后使用启发式方法返回“最佳”一个。</p>
+</div>
+<div class="section" id="expand-trig">
+<h3><code class="docutils literal notranslate"><span class="pre">expand_trig</span></code><a class="headerlink" href="#expand-trig" title="永久链接至标题">¶</a></h3>
+<p>要扩展三角函数，即应用和或双角恒等式，请使用 <code class="docutils literal notranslate"><span class="pre">expand_trig()</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_trig</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \sin{\left(x \right)} \cos{\left(y \right)} + \sin{\left(y \right)} \cos{\left(x \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_trig</span><span class="p">(</span><span class="n">tan</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{2 \tan{\left(x \right)}}{1 - \tan^{2}{\left(x \right)}}\]</div>
+</div>
+</div>
+<p>由于 <code class="docutils literal notranslate"><span class="pre">expand_trig()</span></code> 倾向于使三角函数表达式更大，而 <code class="docutils literal notranslate"><span class="pre">trigsimp()</span></code> 倾向于使它们更小，因此可以使用 <code class="docutils literal notranslate"><span class="pre">trigsimp()</span></code> 反向应用这些恒等式。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trigsimp</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \sin{\left(x + y \right)}\]</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>幂运算<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>在我们介绍简化幂函数之前，有必要先对幂的恒等式进行数学讨论。指数满足三种恒等式：</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(x^ax^b = x^{a + b}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x^ay^a = (xy)^a\)</span>，其中 <span class="math notranslate nohighlight">\(x, y \geq 0, a \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((x^a)^b = x^{ab}\)</span> 其中 <span class="math notranslate nohighlight">\(b \in \mathbb{Z}\)</span></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ol class="simple">
+<li><p>默认情况下，SymPy 符号被假定为复数（\mathbb{C} 的元素）。也就是说，除非它适用于所有复数，否则不会将简化应用于具有给定 Symbol 的表达式。</p></li>
+<li><p>通过将假设传递给 <code class="docutils literal notranslate"><span class="pre">symbols()</span></code>，可以为符号提供不同的假设。</p></li>
+</ol>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 正数</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;a b&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 实数</span>
+<span class="n">z</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;z t c&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>注意：<code class="docutils literal notranslate"><span class="pre">sqrt(x)</span></code> 是 <code class="docutils literal notranslate"> <span class="pre">x**Rational(1,</span> <span class="pre">2)</span></code> 的简写：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span><span class="o">**</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="powsimp">
+<h3><code class="docutils literal notranslate"><span class="pre">powsimp</span></code><a class="headerlink" href="#powsimp" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">powsimp()</span></code> 从上到下，从左到右应用等式 1 和 2。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">powsimp</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{a + b}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">powsimp</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">a</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(x y\right)^{a}\]</div>
+</div>
+</div>
+<p>请注意，如果 <code class="docutils literal notranslate"><span class="pre">powsimp()</span></code> 无效，则拒绝进行简化。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">powsimp</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="n">c</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle t^{c} z^{c}\]</div>
+</div>
+</div>
+<p>如果您知道要应用这种简化，但又不想弄乱假设，则可以传递 <code class="docutils literal notranslate"><span class="pre">force=True</span></code> 标志。无论假设如何，这都将强制进行简化。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">powsimp</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="n">c</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="n">c</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(t z\right)^{c}\]</div>
+</div>
+</div>
+<p>请注意，在某些情况下，特别是当指数是整数或有理数且恒等式 2 成立时，它将自动应用。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle t^{2} z^{2}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \sqrt{x} \sqrt{y}\]</div>
+</div>
+</div>
+<p>这意味着无法使用 <code class="docutils literal notranslate"><span class="pre">powsimp()</span></code> 撤消此等式，因为即使 <code class="docutils literal notranslate"><span class="pre">powsimp()</span></code> 将基底放在一起，它们也会自动再次分开。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">powsimp</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle t^{2} z^{2}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="expand-power-exp-expand-power-base">
+<h3><code class="docutils literal notranslate"><span class="pre">expand_power_exp</span></code> / <code class="docutils literal notranslate"><span class="pre">expand_power_base</span></code><a class="headerlink" href="#expand-power-exp-expand-power-base" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">expand_power_exp()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">expand_power_base()</span></code> 分别从右到左应用等式 1 和 2。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_power_exp</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{a} x^{b}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_power_base</span><span class="p">((</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{a} y^{a}\]</div>
+</div>
+</div>
+<p>与 <code class="docutils literal notranslate"><span class="pre">powsimp()</span></code> 一样，如果等式 2 无效，则不会应用它。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_power_base</span><span class="p">((</span><span class="n">z</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(t z\right)^{c}\]</div>
+</div>
+</div>
+<p>与 <code class="docutils literal notranslate"><span class="pre">powsimp()</span></code> 一样，您可以使用 <code class="docutils literal notranslate"><span class="pre">force=True</span></code> 强制扩展发生，而无需摆弄假设。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_power_base</span><span class="p">((</span><span class="n">z</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="n">c</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle t^{c} z^{c}\]</div>
+</div>
+</div>
+<p>与等式 2 一样，如果幂是数字，则等式 1 会自动应用，因此无法使用 <code class="docutils literal notranslate"><span class="pre">expand_power_exp()</span></code> 撤消。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{5}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_power_exp</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{5}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="powdenest">
+<h3><code class="docutils literal notranslate"><span class="pre">powdenest</span></code><a class="headerlink" href="#powdenest" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">powdenest()</span></code> 从左到右应用恒等式 3。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">powdenest</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{a b}\]</div>
+</div>
+</div>
+<p>和以前一样，如果在给定的假设下不正确，则不应用该等式。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">powdenest</span><span class="p">((</span><span class="n">z</span><span class="o">**</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(z^{a}\right)^{b}\]</div>
+</div>
+</div>
+<p>和以前一样，这可以用 <code class="docutils literal notranslate"><span class="pre">force=True</span></code> 手动覆盖。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">powdenest</span><span class="p">((</span><span class="n">z</span><span class="o">**</span><span class="n">a</span><span class="p">)</span><span class="o">**</span><span class="n">b</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle z^{a b}\]</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>指数和对数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="expand-log">
+<h3><code class="docutils literal notranslate"><span class="pre">expand_log</span></code><a class="headerlink" href="#expand-log" title="永久链接至标题">¶</a></h3>
+<p>要从左到右应用等式 1 和 2，请使用 <code class="docutils literal notranslate"><span class="pre">expand_log()</span></code>。 与往常一样，除非有效，否则不会应用等式。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(x \right)} + \log{\left(y \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(x \right)} - \log{\left(y \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 \log{\left(x \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle n \log{\left(x \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(t z \right)}\]</div>
+</div>
+</div>
+<p>与 <code class="docutils literal notranslate"><span class="pre">powsimp()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">powdenest()</span></code> 一样， <code class="docutils literal notranslate"><span class="pre">expand_log()</span></code> 有一个强制选项，可用于忽略假设。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(z^{2} \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_log</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 2 \log{\left(z \right)}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="logcombine">
+<h3><code class="docutils literal notranslate"><span class="pre">logcombine</span></code><a class="headerlink" href="#logcombine" title="永久链接至标题">¶</a></h3>
+<p>要从右到左应用等式 1 和 2，请使用 <code class="docutils literal notranslate"><span class="pre">logcombine()</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logcombine</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(x y \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logcombine</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(x^{n} \right)}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logcombine</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle n \log{\left(z \right)}\]</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">logcombine()</span></code> 也有一个 <code class="docutils literal notranslate"><span class="pre">force</span></code> 选项，可用于忽略假设。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logcombine</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \log{\left(z^{n} \right)}\]</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>特殊函数<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>SymPy 实现了数十种特殊函数，从组合学中的函数到数学物理。</p>
+<p>SymPy 中包含的特殊函数及其文档的详细列表位于<a class="reference external" href="https://docs.sympy.org/latest/modules/functions/index.html#functions-contents">函数模块</a>页面。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y z&#39;</span><span class="p">)</span>
+<span class="n">k</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;k m n&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(n!= 1\cdot2\cdots(n - 1)\cdot n\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle n!\]</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\binom{n}{k}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle {\binom{n}{k}}\]</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\Gamma(z) = \int_0^\infty t^{z - 1}e^{-t}\,dt\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gamma</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \Gamma\left(z\right)\]</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\({}_pF_q\left(\begin{matrix} a_1, \cdots, a_p \\ b_1, \cdots, b_q \end{matrix}
+\middle| z \right)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hyper</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle {{}_{2}F_{1}\left(\begin{matrix} 1, 2 \\ 3 \end{matrix}\middle| {z} \right)}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="rewrite">
+<h3><code class="docutils literal notranslate"><span class="pre">rewrite</span></code><a class="headerlink" href="#rewrite" title="永久链接至标题">¶</a></h3>
+<p>处理特殊函数的一种常见方法是将它们相互重写。这适用于 SymPy 中的任何函数，而不仅仅是特殊函数。要根据函数重写表达式，请使用 <code class="docutils literal notranslate"><span class="pre">expr.rewrite(function)</span></code>。例如，</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">rewrite</span><span class="p">(</span><span class="n">sin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{2 \sin^{2}{\left(x \right)}}{\sin{\left(2 x \right)}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">rewrite</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \Gamma\left(x + 1\right)\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="expand-func">
+<h3><code class="docutils literal notranslate"><span class="pre">expand_func</span></code><a class="headerlink" href="#expand-func" title="永久链接至标题">¶</a></h3>
+<p>要根据某些等式扩展特殊功能，请使用 <code class="docutils literal notranslate"><span class="pre">expand_func()</span></code>。例如</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expand_func</span><span class="p">(</span><span class="n">gamma</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x \left(x + 1\right) \left(x + 2\right) \Gamma\left(x\right)\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="hyperexpand">
+<h3><code class="docutils literal notranslate"><span class="pre">hyperexpand</span></code><a class="headerlink" href="#hyperexpand" title="永久链接至标题">¶</a></h3>
+<p>要根据更标准的函数重写 hyper，请使用 <code class="docutils literal notranslate"><span class="pre">hyperexpand()</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hyperexpand</span><span class="p">(</span><span class="n">hyper</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">z</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{\log{\left(1 - z \right)}}{z}\]</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">hyperexpand()</span></code> 也适用于更通用的 Meijer G 函数</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expr</span> <span class="o">=</span> <span class="n">meijerg</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],[]],</span> <span class="o">-</span><span class="n">z</span><span class="p">)</span>
+<span class="n">expr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle {G_{2, 1}^{1, 1}\left(\begin{matrix} 1 &amp; 1 \\1 &amp;  \end{matrix} \middle| {- z} \right)}\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hyperexpand</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle e^{\frac{1}{z}}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="combsimp">
+<h3><code class="docutils literal notranslate"><span class="pre">combsimp</span></code><a class="headerlink" href="#combsimp" title="永久链接至标题">¶</a></h3>
+<p>要简化组合表达式，请使用 <code class="docutils literal notranslate"><span class="pre">combsimp()</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;n k&#39;</span><span class="p">,</span> <span class="n">integer</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">combsimp</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle n \left(n - 2\right) \left(n - 1\right)\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combsimp</span><span class="p">(</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{n + 1}{k + 1}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="gammasimp">
+<h3><code class="docutils literal notranslate"><span class="pre">gammasimp</span></code><a class="headerlink" href="#gammasimp" title="永久链接至标题">¶</a></h3>
+<p>要使用具有非整数参数的 gamma 函数或组合函数来简化表达式，请使用 <code class="docutils literal notranslate"><span class="pre">gammasimp()</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gammasimp</span><span class="p">(</span><span class="n">gamma</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">gamma</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{\pi}{\sin{\left(\pi x \right)}}\]</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>示例：连续分数<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>让我们使用 SymPy 来探索<a class="reference external" href="https://en.wikipedia.org/wiki/Continued_fraction">连分数</a>。连分数是以下形式的表达式</p>
+<div class="math notranslate nohighlight">
+\[
+a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{ \ddots + \cfrac{1}{a_n}
+}}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">list_to_frac</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="n">expr</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="n">expr</span> <span class="o">+=</span> <span class="n">i</span>
+        <span class="n">expr</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">expr</span>
+    <span class="k">return</span> <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">expr</span>
+
+<span class="n">list_to_frac</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x + \frac{1}{y + \frac{1}{z}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_to_frac</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{43}{30}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">syms</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;a0:5&#39;</span><span class="p">)</span>
+<span class="n">syms</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(a0, a1, a2, a3, a4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frac</span> <span class="o">=</span> <span class="n">list_to_frac</span><span class="p">(</span><span class="n">syms</span><span class="p">)</span>
+<span class="n">frac</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle a_{0} + \frac{1}{a_{1} + \frac{1}{a_{2} + \frac{1}{a_{3} + \frac{1}{a_{4}}}}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frac</span> <span class="o">=</span> <span class="n">cancel</span><span class="p">(</span><span class="n">frac</span><span class="p">)</span>
+<span class="n">frac</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{a_{0} a_{1} a_{2} a_{3} a_{4} + a_{0} a_{1} a_{2} + a_{0} a_{1} a_{4} + a_{0} a_{3} a_{4} + a_{0} + a_{2} a_{3} a_{4} + a_{2} + a_{4}}{a_{1} a_{2} a_{3} a_{4} + a_{1} a_{2} + a_{1} a_{4} + a_{3} a_{4} + 1}\]</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ai"
+        },
+        kernelOptions: {
+            kernelName: "ai",
+            path: "./start"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ai'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01_basic-operations.html" title="previous page"><span class="section-number">1.1.2. </span>基本运算</a>
+    <a class='right-next' id="next-link" href="03_calculus.html" title="next page"><span class="section-number">1.1.4. </span>计算</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

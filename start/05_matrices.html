@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.1.6. 矩阵 &#8212; 品味人生</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/sympy-book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1.1.7. 高级表达式操作" href="06_manipulation.html" />
+    <link rel="prev" title="1.1.5. 求解" href="04_solvers.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">品味人生</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  教程
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../preface.html">
+   1. 前言
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
+     1.1. SymPy
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="00_intro.html">
+       1.1.1. 简介
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_basic-operations.html">
+       1.1.2. 基本运算
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_simplification.html">
+       1.1.3. 化简
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_calculus.html">
+       1.1.4. 计算
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="04_solvers.html">
+       1.1.5. 求解
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       1.1.6. 矩阵
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="06_manipulation.html">
+       1.1.7. 高级表达式操作
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="07_faqs.html">
+       1.1.8. 常见问题
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  外部资源
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/index.html">
+   参考
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/glossary.html">
+   术语库
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div class="w3-padding w3-card-4 w3-pale-green">
+  <a href="https://github.com/xinetzone" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub"
+      data-position="top" data-delay="50">
+      <i class="fab fa-github"></i>
+  </a>
+  <a href="mailto:q735613050@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top"
+      data-delay="50">
+      <i class="fas fa-envelope-open"></i>
+  </a>
+  <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=735613050" class="tooltipped"
+      target="_blank" data-tooltip="QQ联系我: 735613050" data-position="top" data-delay="50">
+      <i class="fab fa-qq"></i>
+  </a>
+  <a href="https://www.zhihu.com/people/liu-xin-wei-55" class="tooltipped" target="_blank"
+      data-tooltip="关注我的知乎: liu-xin-wei-55" data-position="top" data-delay="50">
+      <i class="fab fa-zhihu1">知</i>
+  </a>
+  <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/xinet" class="tooltipped"
+      data-tooltip="领英联系我: xinet" data-position="top" data-delay="50">
+      <i class="fab fa-linkedin"></i>
+  </a>
+  <div><a href="https://github.com/xinetzone/sympy-book">SymPy Book</a> 版权所有</div>
+</div> 
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/start/05_matrices.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/start/05_matrices.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/sympy-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/sympy-book/issues/new?title=Issue%20on%20page%20%2Fstart/05_matrices.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/xinetzone/sympy-book/main?urlpath=tree/docs/start/05_matrices.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Matrix
+    </span>
+   </code>
+   的基本运算
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shape">
+     shape
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     访问行和列
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     删除和插入行和列
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   基础方法
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   其他方法
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rref">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       rref
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nullspace">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       nullspace
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#columnspace">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       columnspace
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eigenvalues-eigenvectors-and-diagonalization">
+     Eigenvalues, Eigenvectors, and Diagonalization
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1><span class="section-number">1.1.6. </span>矩阵<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>参考 <a class="reference external" href="https://docs.sympy.org/latest/tutorial/matrices.html">Matrices</a></p>
+<p>要在 SymPy 中创建矩阵，请使用 <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> 对象。通过提供组成矩阵的行向量列表来构建矩阵。例如，构造矩阵</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}\left[\begin{array}{cc}1 &amp; -1\\3 &amp; 4\\0 &amp; 2\end{array}\right]\end{split}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; -1\\3 &amp; 4\\0 &amp; 2\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<p>为了便于制作列向量，元素列表被认为是列向量。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1\\2\\3\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<p>矩阵的操作就像 SymPy 或 Python 中的任何其他对象一样。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">M</span> <span class="o">*</span> <span class="n">N</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}5\\3\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<p>关于 SymPy 矩阵需要注意的一件重要事情是，与 SymPy 中的所有其他对象不同，它们是可变的。这意味着它们可以就地修改，我们将在下面看到。这样做的缺点是 <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> 不能用于需要不变性的地方，例如在其他 SymPy 表达式内部或作为字典的键。如果您需要 <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> 的不可变版本，请使用 <code class="docutils literal notranslate"><span class="pre">ImmutableMatrix</span></code>。</p>
+<div class="section" id="matrix">
+<h2><code class="docutils literal notranslate"><span class="pre">Matrix</span></code> 的基本运算<a class="headerlink" href="#matrix" title="永久链接至标题">¶</a></h2>
+<div class="section" id="shape">
+<h3>shape<a class="headerlink" href="#shape" title="永久链接至标题">¶</a></h3>
+<p>要获得矩阵的形状，请使用 <code class="docutils literal notranslate"><span class="pre">shape()</span></code> 函数。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">shape</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 2 &amp; 3\\-2 &amp; 0 &amp; 4\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shape</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>访问行和列<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>要获取矩阵的单个行或列，请使用 <code class="docutils literal notranslate"><span class="pre">row</span></code> 或 <code class="docutils literal notranslate"><span class="pre">col</span></code>。例如，<code class="docutils literal notranslate"><span class="pre">M.row(0)</span></code> 将获得第一行。<code class="docutils literal notranslate"><span class="pre">M.col(-1)</span></code> 将获得最后一列。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">M</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Matrix([[1, 2, 3]]),
+ Matrix([
+ [3],
+ [4]]))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>删除和插入行和列<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>要删除行或列，请使用 <code class="docutils literal notranslate"><span class="pre">row_del</span></code> 或 <code class="docutils literal notranslate"><span class="pre">col_del</span></code>。这些操作将就地修改矩阵。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">col_del</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">row_del</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>要插入行或列，请使用 <code class="docutils literal notranslate"><span class="pre">row_insert</span></code> 或 <code class="docutils literal notranslate"><span class="pre">col_insert</span></code>。这些操作没有就地操作。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left[\begin{matrix}2 &amp; 3\end{matrix}\right]\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">row_insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]))</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}2 &amp; 3\\0 &amp; 4\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">col_insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 2 &amp; 3\\-2 &amp; 0 &amp; 4\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<p>除非明确说明，否则下面提到的方法不会就地运行。通常，未就地操作的方法将返回一个新的 <code class="docutils literal notranslate"><span class="pre">Matrix</span></code>，而就地操作的方法将返回 <code class="docutils literal notranslate"><span class="pre">None</span></code>。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>基础方法<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>如上所述，加法和乘法等简单运算只需使用 +、* 和 ** 即可完成。要找到矩阵的逆矩阵，只需 -1 次方即可。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+<span class="n">M</span> <span class="o">+</span> <span class="n">N</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 6\\-2 &amp; 10\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">-</span><span class="n">N</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 0\\-2 &amp; -4\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">*</span> <span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}3 &amp; 9\\-6 &amp; 9\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">*</span> <span class="n">N</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 24\\0 &amp; 15\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}-5 &amp; 12\\-8 &amp; 3\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}\frac{1}{3} &amp; - \frac{1}{3}\\\frac{2}{9} &amp; \frac{1}{9}\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<p>要对矩阵进行转置，请使用 <code class="docutils literal notranslate"><span class="pre">T</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 2 &amp; 3\\4 &amp; 5 &amp; 6\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 4\\2 &amp; 5\\3 &amp; 6\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>其他方法<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">eye(n)</span></code> 生成 <span class="math notranslate nohighlight">\(n \times n\)</span> 单位矩阵，<code class="docutils literal notranslate"><span class="pre">zeros(n,</span> <span class="pre">m)</span></code>，<code class="docutils literal notranslate"><span class="pre">ones(n,</span> <span class="pre">m)</span></code> 分别为全零矩阵，全一矩阵。<code class="docutils literal notranslate"><span class="pre">diag</span></code> 生成对角矩阵：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; 0\\0 &amp; 2 &amp; 0\\0 &amp; 0 &amp; 3\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diag</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}-1 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 1 &amp; 1 &amp; 0\\0 &amp; 1 &amp; 1 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 5\\0 &amp; 0 &amp; 0 &amp; 7\\0 &amp; 0 &amp; 0 &amp; 5\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">det</span></code> 计算行列式：</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">M</span><span class="o">.</span><span class="n">det</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle -1\]</div>
+</div>
+</div>
+<div class="section" id="rref">
+<h3><code class="docutils literal notranslate"><span class="pre">rref</span></code><a class="headerlink" href="#rref" title="永久链接至标题">¶</a></h3>
+<p>To put a matrix into reduced row echelon form, use <code class="docutils literal notranslate"><span class="pre">rref</span></code>. <code class="docutils literal notranslate"><span class="pre">rref</span></code> returns a tuple of two elements. The first is the reduced row echelon form, and the second is a tuple of indices of the pivot columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">]])</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 0 &amp; 1 &amp; 3\\2 &amp; 3 &amp; 4 &amp; 7\\-1 &amp; -3 &amp; -3 &amp; -4\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">rref</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Matrix([
+ [1, 0,   1,   3],
+ [0, 1, 2/3, 1/3],
+ [0, 0,   0,   0]]),
+ (0, 1))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nullspace">
+<h3><code class="docutils literal notranslate"><span class="pre">nullspace</span></code><a class="headerlink" href="#nullspace" title="永久链接至标题">¶</a></h3>
+<p>To find the nullspace of a matrix, use <code class="docutils literal notranslate"><span class="pre">nullspace</span></code>. <code class="docutils literal notranslate"><span class="pre">nullspace</span></code> returns a <code class="docutils literal notranslate"><span class="pre">list</span></code> of column vectors that span the nullspace of the matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 2 &amp; 3 &amp; 0 &amp; 0\\4 &amp; 10 &amp; 0 &amp; 0 &amp; 1\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">nullspace</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Matrix([
+ [-15],
+ [  6],
+ [  1],
+ [  0],
+ [  0]]),
+ Matrix([
+ [0],
+ [0],
+ [0],
+ [1],
+ [0]]),
+ Matrix([
+ [   1],
+ [-1/2],
+ [   0],
+ [   0],
+ [   1]])]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="columnspace">
+<h3><code class="docutils literal notranslate"><span class="pre">columnspace</span></code><a class="headerlink" href="#columnspace" title="永久链接至标题">¶</a></h3>
+<p>To find the columnspace of a matrix, use <code class="docutils literal notranslate"><span class="pre">columnspacee</span></code>. <code class="docutils literal notranslate"><span class="pre">columnspace</span></code> returns a <code class="docutils literal notranslate"><span class="pre">list</span></code> of column vectors that span the nullspace of the matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span> <span class="p">,</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span> <span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1 &amp; 1 &amp; 2\\2 &amp; 1 &amp; 3\\3 &amp; 1 &amp; 4\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">columnspace</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Matrix([
+ [1],
+ [2],
+ [3]]),
+ Matrix([
+ [1],
+ [1],
+ [1]])]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="eigenvalues-eigenvectors-and-diagonalization">
+<h3>Eigenvalues, Eigenvectors, and Diagonalization<a class="headerlink" href="#eigenvalues-eigenvectors-and-diagonalization" title="永久链接至标题">¶</a></h3>
+<p>To find the eigenvalues of a matrix, use <code class="docutils literal notranslate"><span class="pre">eigenvals</span></code>. <code class="docutils literal notranslate"><span class="pre">eigenvals</span></code> returns a dictionary of <code class="docutils literal notranslate"><span class="pre">eigenvalue:</span> <span class="pre">algebraic_multiplicity</span></code> pairs (similar to the output of <a class="reference external" href="https://docs.sympy.org/latest/tutorial/solvers.html#tutorial-roots">roots</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">3</span><span class="p">]])</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}3 &amp; -2 &amp; 4 &amp; -2\\5 &amp; 3 &amp; -3 &amp; -2\\5 &amp; -2 &amp; 2 &amp; -2\\5 &amp; -2 &amp; -3 &amp; 3\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{3: 1, -2: 1, 5: 2}
+</pre></div>
+</div>
+</div>
+</div>
+<p>This means that <code class="docutils literal notranslate"><span class="pre">M</span></code> has eigenvalues -2, 3, and 5, and that the eigenvalues -2 and 3 have algebraic multiplicity 1 and that the eigenvalue 5 has algebraic multiplicity 2.</p>
+<p>To find the eigenvectors of a matrix, use <code class="docutils literal notranslate"><span class="pre">eigenvects</span></code>. <code class="docutils literal notranslate"><span class="pre">eigenvects</span></code> returns a list of tuples of the form <code class="docutils literal notranslate"><span class="pre">(eigenvalue,</span> <span class="pre">algebraic_multiplicity,</span> <span class="pre">[eigenvectors])</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">eigenvects</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-2,
+  1,
+  [Matrix([
+   [0],
+   [1],
+   [1],
+   [1]])]),
+ (3,
+  1,
+  [Matrix([
+   [1],
+   [1],
+   [1],
+   [1]])]),
+ (5,
+  2,
+  [Matrix([
+   [1],
+   [1],
+   [1],
+   [0]]),
+   Matrix([
+   [ 0],
+   [-1],
+   [ 0],
+   [ 1]])])]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This shows us that, for example, the eigenvalue 5 also has geometric multiplicity 2, because it has two eigenvectors. Because the algebraic and geometric multiplicities are the same for all the eigenvalues, <code class="docutils literal notranslate"><span class="pre">M</span></code> is diagonalizable.</p>
+<p>To diagonalize a matrix, use diagonalize. diagonalize returns a tuple <span class="math notranslate nohighlight">\((P,D)\)</span>, where <span class="math notranslate nohighlight">\(D\)</span> is diagonal and <span class="math notranslate nohighlight">\(M=PDP^{−1}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">diagonalize</span><span class="p">()</span>
+<span class="n">P</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 1 &amp; 1 &amp; 0\\1 &amp; 1 &amp; 1 &amp; -1\\1 &amp; 1 &amp; 1 &amp; 0\\1 &amp; 1 &amp; 0 &amp; 1\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}-2 &amp; 0 &amp; 0 &amp; 0\\0 &amp; 3 &amp; 0 &amp; 0\\0 &amp; 0 &amp; 5 &amp; 0\\0 &amp; 0 &amp; 0 &amp; 5\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">P</span><span class="o">**-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}3 &amp; -2 &amp; 4 &amp; -2\\5 &amp; 3 &amp; -3 &amp; -2\\5 &amp; -2 &amp; 2 &amp; -2\\5 &amp; -2 &amp; -3 &amp; 3\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">P</span><span class="o">**-</span><span class="mi">1</span> <span class="o">==</span> <span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that since <code class="docutils literal notranslate"><span class="pre">eigenvects</span></code> also includes the eigenvalues, you should use it instead of <code class="docutils literal notranslate"><span class="pre">eigenvals</span></code> if you also want the eigenvectors. However, as computing the eigenvectors may often be costly, <code class="docutils literal notranslate"><span class="pre">eigenvals</span></code> should be preferred if you only wish to find the eigenvalues.</p>
+<p>If all you want is the characteristic polynomial, use <code class="docutils literal notranslate"><span class="pre">charpoly</span></code>. This is more efficient than <code class="docutils literal notranslate"><span class="pre">eigenvals</span></code>, because sometimes symbolic roots can be expensive to calculate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lamda</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;lamda&#39;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">charpoly</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span>
+<span class="n">factor</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">as_expr</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left(\lambda - 5\right)^{2} \left(\lambda - 3\right) \left(\lambda + 2\right)\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ai"
+        },
+        kernelOptions: {
+            kernelName: "ai",
+            path: "./start"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ai'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="04_solvers.html" title="previous page"><span class="section-number">1.1.5. </span>求解</a>
+    <a class='right-next' id="next-link" href="06_manipulation.html" title="next page"><span class="section-number">1.1.7. </span>高级表达式操作</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By xinetzone<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
