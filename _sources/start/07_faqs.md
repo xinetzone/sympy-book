@@ -20,10 +20,9 @@ kernelspec:
 
 ```{code-cell} ipython3
 import warnings
-from sympy import simplify, cos, sin, expand, init_printing
-from sympy import symbols
+from sympy import *
+
 warnings.filterwarnings('ignore')
-init_printing()
 
 x = symbols('x')
 simplify((x + 1)**2 - (x**2 + 2*x + 1))
