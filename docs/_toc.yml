@@ -1,8 +1,15 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-
-format: jb-article  # 可选 jb-article，jb-book
-root: index # A path to the *root page* (landing page) of your book
-sections:
-- file: markdown
-- file: notebooks
+format: jb-book 
+root: index
+parts:
+- caption: 教程
+  numbered: 3
+  chapters:
+  - file: preface
+    sections:
+    - file: start/index
+      sections:
+      - glob: start/**
+- caption: 外部资源
+  chapters:
+  - file: reference/index
+  - file: reference/glossary
