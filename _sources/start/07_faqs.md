@@ -94,7 +94,7 @@ ww
 
 ```{code-cell} ipython3
 symbols('rrt')
-# rrt 会报错
+rrt 会报错
 ```
 
 推荐使用 `symbols` 创建变量。
@@ -132,6 +132,6 @@ f1(1), f1(x)
 ```
 
 ```{code-cell} ipython3
-# f2(1) 会报错
+f2(1) 会报错
 ```
 
