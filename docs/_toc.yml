@@ -4,7 +4,7 @@ parts:
 - caption: 教程
   numbered: 3
   chapters:
-  - file: preface
+  - file: quickly-start
     sections:
     - file: start/index
       sections:

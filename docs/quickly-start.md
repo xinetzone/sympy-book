@@ -1,4 +1,4 @@
-# 前言
+# 快速入门
 
 ```{tableofcontents}
 ```
